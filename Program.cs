@@ -37,6 +37,8 @@ while (programRunning)
     {
         case 1:
 
+
+
             //Nedan är uträkningarna. Det finns garanterat ett bättre sätt att göra detta på då de fyra olika kodblocken är väldigt lika.
             //Någon form av loop kanske? Men detta är den nivå jag kan förstå just nu.
 
