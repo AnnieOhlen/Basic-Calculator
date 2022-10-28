@@ -5,7 +5,7 @@
             
             DONE. Välkomnande meddelande
             
-            -En lista för att spara historik för räkningar
+            DONE. En lista för att spara historik för räkningar
 
             DONE. Användaren matar in tal och matematiska operation
 
@@ -13,13 +13,13 @@
 
             DONE. Ifall användaren skulle dela 0 med 0 visa Ogiltig inmatning!
 
-            -Lägga resultat till listan
+            DONE. Lägga resultat till listan
 
             DONE. Visa resultat
 
-            -Fråga användaren om den vill visa tidigare resultat.
+            DONE. Fråga användaren om den vill visa tidigare resultat.
 
-            -Visa tidigare resultat
+            DONE. Visa tidigare resultat
 
             DONE. Fråga användaren om den vill avsluta eller fortsätta.
 

@@ -2,24 +2,13 @@
 //In a few places Y/N? have been used, meaning YES/NO?.
 //It has been shorted to make testing the program faster with just an y or n for the user.
 
-
-//Dictionary instead of list in order to connect two types.
-
-
-
-
-
-
-
-//string userCalculationInput = "";
-int calculatedResult = 0;
-Dictionary<string, int> calculationsList = new Dictionary<string, int>(2);
-//string[] newCalculationAndResult = new string[1];
-
 //Color styling of the console.
 Console.BackgroundColor = ConsoleColor.DarkGray;
 Console.Clear();
 Console.ForegroundColor = ConsoleColor.Black;
+
+//Dictionary instead of list in order to connect two types.
+Dictionary<string, int> calculationsList = new Dictionary<string, int>(2);
 
 bool programRunning = true;
 while (programRunning)
@@ -31,87 +20,8 @@ while (programRunning)
     //Meny choices.
     Console.WriteLine("[1] < Calculation of two numbers >");
     Console.WriteLine("[2] < Show previous results >");
-    Console.WriteLine("[3] < Exit the program >");
-
-
-
-
-
-    Console.WriteLine("Please enter a number: ");
-    string? firstNumberText = Console.ReadLine();
-    int firstNumber = Convert.ToInt32(firstNumberText);
-
-    Console.WriteLine("Chose an operator ( + - * / ): ");
-    string? operatorChoiceText = Console.ReadLine();
-    char operatorChoice = Convert.ToChar(operatorChoiceText); //Null solved with catch.
-
-
-    Console.WriteLine("Please enter a number: ");
-    string? secondNumberText = Console.ReadLine();
-    int secondNumber = Convert.ToInt32(secondNumberText);
-
-    string userCalculationInput = $"{firstNumberText} {operatorChoiceText} {secondNumberText}";
-
-    if (operatorChoice == '+')
-
-    {
-        
-        Console.WriteLine($"Input: {firstNumber} {operatorChoice} {secondNumber}. Result: {calculatedResult = firstNumber + secondNumber} ");
-        calculationsList.Add(userCalculationInput, calculatedResult);
-    }
-
-    if (operatorChoice == '-')
-    {
-        Console.WriteLine($"Input: {firstNumber} {operatorChoice} {secondNumber}. Result: {calculatedResult = firstNumber - secondNumber} ");
-        calculationsList.Add(userCalculationInput, calculatedResult);
-    }
-
-
-
-
-    if (operatorChoice == '*')
-    {
-        Console.WriteLine($"Input: {firstNumber} {operatorChoice} {secondNumber}. Result: {calculatedResult = firstNumber * secondNumber} ");
-        calculationsList.Add(userCalculationInput, calculatedResult);
-    }
-        
-
-    if (operatorChoice == '/')
-    {
-        Console.WriteLine($"Input: {firstNumber} {operatorChoice} {secondNumber}. Result: {calculatedResult = firstNumber / secondNumber} ");
-        calculationsList.Add(userCalculationInput, calculatedResult);
-    }
-        
-
-
-
-
-    Console.WriteLine("List: ");
-    foreach (var item in calculationsList)
-    {
-        Console.WriteLine($"Calculation #{calculationsList.Count}: [" + item.Key + " = " + item.Value + "]");
-    }
-
-    Console.ReadKey();
-
-
-    /*
-
-
-
-    */
-
-    //userCalculationInput = $"{firstNumberText} {operatorChoiceText} {secondNumberText}";
-
-
-
-
-
-
-
-
-
-    /*
+    Console.WriteLine("[3] < Clear the results >");
+    Console.WriteLine("[4] < Exit the program >");
 
     //Tryparse for the meny choice with the switch default to inform if not 1-3 have been entered.
     Int32.TryParse(Console.ReadLine(), out int menyChoice);
@@ -120,41 +30,38 @@ while (programRunning)
         case 1:
             //Nedan är uträkningarna. Det finns garanterat ett bättre sätt att göra detta på då de fyra olika kodblocken är väldigt lika.
             //Någon form av loop kanske? Men detta är den nivå jag kan förstå just nu.
-
-            //calculatedResultsList.Add(calculatedResult);
             try
             {
-                Console.WriteLine("Please enter a number: ");
+                Console.WriteLine("\nPlease enter the first number: ");
                 string? firstNumberText = Console.ReadLine();
                 int firstNumber = Convert.ToInt32(firstNumberText);
 
-                Console.WriteLine("Chose an operator ( + - * / ): ");
+                Console.WriteLine("\nChose an operator ( + - * / ): ");
                 string? operatorChoiceText = Console.ReadLine();
                 char operatorChoice = Convert.ToChar(operatorChoiceText); //Null solved with catch.
 
 
-                Console.WriteLine("Please enter a number: ");
+                Console.WriteLine("\nPlease enter the second number: ");
                 string? secondNumberText = Console.ReadLine();
                 int secondNumber = Convert.ToInt32(secondNumberText);
 
-                if (operatorChoice == '+')
-                    Console.WriteLine($"Input: {firstNumber} {operatorChoice} {secondNumber}. Result: {calculatedResult = firstNumber + secondNumber} ");
+                string userCalculationInput = $"{firstNumberText} {operatorChoiceText} {secondNumberText}";
+                int calculatedResult = 0;
 
+                if (operatorChoice == '+')
+                    Console.WriteLine($"\nInput: {firstNumber} {operatorChoice} {secondNumber}. Result: {calculatedResult = firstNumber + secondNumber} ");
 
                 if (operatorChoice == '-')
-                    Console.WriteLine($"Input: {firstNumber} {operatorChoice} {secondNumber}. Result: {calculatedResult = firstNumber - secondNumber} ");
+                    Console.WriteLine($"\nInput: {firstNumber} {operatorChoice} {secondNumber}. Result: {calculatedResult = firstNumber - secondNumber} ");
 
                 if (operatorChoice == '*')
-                    Console.WriteLine($"Input: {firstNumber} {operatorChoice} {secondNumber}. Result: {calculatedResult = firstNumber * secondNumber} ");
+                    Console.WriteLine($"\nInput: {firstNumber} {operatorChoice} {secondNumber}. Result: {calculatedResult = firstNumber * secondNumber} ");
 
                 if (operatorChoice == '/')
-                    Console.WriteLine($"Input: {firstNumber} {operatorChoice} {secondNumber}. Result: {calculatedResult = firstNumber / secondNumber} ");
+                    Console.WriteLine($"\nInput: {firstNumber} {operatorChoice} {secondNumber}. Result: {calculatedResult = firstNumber / secondNumber} ");
 
-                userCalculationInput = $"{firstNumberText} {operatorChoiceText} {secondNumberText}";
-                Console.WriteLine(userCalculationInput);
                 calculationsList.Add(userCalculationInput, calculatedResult);
                 Console.ReadKey();
-
                 break;
 
             }
@@ -172,28 +79,65 @@ while (programRunning)
             break;
 
         case 2:
-            Console.WriteLine("Show the previous results of the calculator? Y/N?");
+            Console.WriteLine("\nShow the previous results of the calculator? Y/N?");
             string? showPreviousResults = Console.ReadLine();
 
-            if (showPreviousResults == "y")
+            if (showPreviousResults?.ToLower() == "y")
             {
-                Console.WriteLine(calculationsList);
+                Console.WriteLine("\nComplete list of the calculations: \n");
+                int calculationOrder = 1;
+                for (int i = 0; i < calculationsList.Count; i++)
+                {
+                    Console.WriteLine($"Calculation #{calculationOrder++}: " + calculationsList.ElementAt(i).Key + " = " + calculationsList.ElementAt(i).Value);
+                }
+
+
+                //Alternativt:
+                /*
+                foreach (var item in calculationsList)
+                {
+                    Console.WriteLine($"Calculation #{calculationsList.Count}: [" + item.Key + " = " + item.Value + "]");
+                }
+                */
+
+
                 Console.ReadKey();
                 break;
             }
 
-            else if (showPreviousResults != "y") //You will be returned to the meny. WriteLine and then a 2 second delay for break? Possible?
+            else if (showPreviousResults?.ToLower() != "y") //You will be returned to the meny. WriteLine and then a 2 second delay for break? Possible?
                 break;
             break;
 
         case 3:
+            Console.WriteLine("If you clear the results you will not be able to get them back. Clear the results? Y/N?");
+            string? clearResultsChoice = Console.ReadLine();
+
+            if (clearResultsChoice?.ToLower() == "y")
+                calculationsList.Clear();
+
+            else if (clearResultsChoice?.ToLower() == "n")
+            {
+                Console.WriteLine("The results will not be cleared.");
+                Console.ReadKey();
+                break;
+            }
+            else
+            {
+                Console.WriteLine("Error: You did not enter Y or N.");
+                //Console.P();
+                goto case 3;
+            }
+            break;
+
+        case 4:
             Console.WriteLine("If you exit the program the calculations will not be saved. Exit the program? Y/N?");
             string? exitYesNo = Console.ReadLine();
 
             if (exitYesNo?.ToLower() == "y")
                 programRunning = false;
 
-            else if (exitYesNo != "y")
+            else if (exitYesNo?.ToLower() != "y")
                 break;
             break;
 
@@ -202,19 +146,6 @@ while (programRunning)
             break;
     }
 
-    */
-
-
-
-
-
-
-
-
-
-
-
-
-    //To clear the console the between meny choices.
+    //To clear the console.
     Console.Clear();
 }
