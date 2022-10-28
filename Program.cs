@@ -8,8 +8,6 @@ It has been shorted to make testing the program faster with just an y or n for t
 Console.BackgroundColor = ConsoleColor.DarkGray;
 Console.Clear();
 Console.ForegroundColor = ConsoleColor.Black;
-Console.WindowHeight = 40;
-Console.WindowWidth = 80;
 
 //Dictionary instead of list in order to connect two types:
 Dictionary<string, int> calculationsList = new Dictionary<string, int>(2);
