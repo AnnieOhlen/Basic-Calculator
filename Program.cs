@@ -11,9 +11,16 @@ Console.ForegroundColor = ConsoleColor.Black;
 
 
 
-List<int> calculatedResultsList = new List<int>();
+//List<int> calculatedResultsList = new List<int>();
+/*
+Dictionary<string, int> calculatedResultsList = new Dictionary<string, int>();
 int calculatedResult = 0;
+*/
 
+
+
+Dictionary<string, int> calculationsList = new Dictionary<string, int>();
+int calculatedResult = 0;
 
 
 bool programRunning = true;
@@ -36,9 +43,6 @@ while (programRunning)
     switch (menyChoice)
     {
         case 1:
-
-
-
             //Nedan är uträkningarna. Det finns garanterat ett bättre sätt att göra detta på då de fyra olika kodblocken är väldigt lika.
             //Någon form av loop kanske? Men detta är den nivå jag kan förstå just nu.
 
@@ -58,22 +62,34 @@ while (programRunning)
                 string? secondNumberText = Console.ReadLine();
                 int secondNumber = Convert.ToInt32(secondNumberText);
 
+                //Dictionary<string, int> calculationsList = new Dictionary<string, int>();
+                //int calculatedResult = 0;
+
 
                 if (operatorChoice == '+')
-                    Console.WriteLine($"Entererd: {firstNumber} {operatorChoice} {secondNumber}. Result: {calculatedResult = firstNumber + secondNumber} ");
+                    Console.WriteLine($"Input: {firstNumber} {operatorChoice} {secondNumber}. Result: {calculatedResult = firstNumber + secondNumber} ");
+
 
                 if (operatorChoice == '-')
-                    Console.WriteLine($"Entererd: {firstNumber} {operatorChoice} {secondNumber}. Result: {calculatedResult = firstNumber - secondNumber} ");
+                    Console.WriteLine($"Input: {firstNumber} {operatorChoice} {secondNumber}. Result: {calculatedResult = firstNumber - secondNumber} ");
 
                 if (operatorChoice == '*')
-                    Console.WriteLine($"Entererd: {firstNumber} {operatorChoice} {secondNumber}. Result: {calculatedResult = firstNumber * secondNumber} ");
+                    Console.WriteLine($"Input: {firstNumber} {operatorChoice} {secondNumber}. Result: {calculatedResult = firstNumber * secondNumber} ");
 
                 if (operatorChoice == '/')
-                    Console.WriteLine($"Entererd: {firstNumber} {operatorChoice} {secondNumber}. Result: {calculatedResult = firstNumber / secondNumber} ");
+                    Console.WriteLine($"Input: {firstNumber} {operatorChoice} {secondNumber}. Result: {calculatedResult = firstNumber / secondNumber} ");
+
+                string userCalculationInput = $"{firstNumberText} {operatorChoiceText} {secondNumberText}";
+                Console.WriteLine(userCalculationInput);
+                calculationsList.Add(userCalculationInput, calculatedResult);
+                Console.ReadKey();
+
                 {
+                    /*
                     Console.WriteLine(calculatedResult);
                     calculatedResultsList.Add(calculatedResult);
                     Console.ReadKey();
+                    */
                 }
             }
             catch
@@ -97,7 +113,7 @@ while (programRunning)
             if (showPreviousResults == "y")
             //Print list.
             {
-                Console.WriteLine(calculatedResultsList);
+                Console.WriteLine(calculationsList);
                 Console.ReadKey();
                 break;
             }
